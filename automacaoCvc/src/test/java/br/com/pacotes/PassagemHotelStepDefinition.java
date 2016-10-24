@@ -8,7 +8,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class StepDefinitionPassagemHotel {
+public class PassagemHotelStepDefinition {
 
 	WebDriver driver;
 
@@ -17,17 +17,18 @@ public class StepDefinitionPassagemHotel {
 		System.setProperty("webdriver.gecko.driver", "C:\\geckodriver-v0.10.0-win64\\geckodriver.exe");
 		driver = new FirefoxDriver();
 		driver.get("http://vendashom.cvc.com.br/index.aspx");
+						
 	}
 
 	@When("^Executar venda de passagem mas hotel$")
 	public void executar_venda_de_passagem_mas_hotel() throws Throwable {
 		driver.findElement(By.id("txtOrigin")).sendKeys("São Paulo");
-		
-		
+		driver.findElement(By.id("txtDestination")).sendKeys("Maceio");
+		driver.findElement(By.id("btnSearch")).click();
 	}
 
 	@Then("^Fechar browser$")
 	public void fechar_browser() throws Throwable {
-		System.out.println("Test 3");
+	    
 	}
 }
